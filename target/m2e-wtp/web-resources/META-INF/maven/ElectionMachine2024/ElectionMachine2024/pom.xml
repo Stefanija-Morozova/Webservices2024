@@ -48,7 +48,6 @@
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
-<<<<<<< Updated upstream
 <!-- https://mvnrepository.com/artifact/org.eclipse.persistence/eclipselink 
 	Eclipselink JPA Implementation 
 -->
@@ -57,8 +56,6 @@
      <artifactId>eclipselink</artifactId>
      <version>2.5.0</version>
     </dependency>
-=======
->>>>>>> Stashed changes
 
     <dependency>
 <groupId>com.google.appengine</groupId>
