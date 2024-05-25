@@ -25,7 +25,7 @@ public class GetCandidate {
 //		makes a connection to the SQL database, and exception for when the connection/login using variables below fails
 		
 		String driver = "com.mysql.jdbc.Driver";
-		String DBpath = "//localhost/";
+		String DBpath = "//localhost/"; ///add local host after dealing with database
 		String username = " ";
 		String password = " ";
 		Connection con = null;
@@ -45,4 +45,29 @@ public class GetCandidate {
         sql = "Select*From candidates";
         rs = stmt.executeQuery(sql);
         System.out.print(rs);
+        
+        
+        //array list for candidate bastards
+        
+        ArrayList<String> CANDIDATE = new ArrayList<String>();
+
+        try {
+            int i = rs.getInt("ID"); // There is also other version for getInt which relies on column index number
+            System.out.println("i: " + i + "\n");
+        } catch (Exception ex) {
+            System.out.println("*** Does not work without first using rs.next()!!! ***");
+            // Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+         // Going through the results
+            while (rs.next()) {
+            	int a = rs.getInt("CANDIDATE_ID");
+                String i = rs.getString("FIRST_NAME");
+                String e = rs.getString("LAST_NAME");
+                CANDIDATE.add(i);
+                System.out.println(a);
+                System.out.println(i);
+                System.out.println(e);
+            }
+        }
+
+        
 	}}
