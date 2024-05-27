@@ -1,4 +1,3 @@
-package app;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -69,7 +68,8 @@ public class GetCandidate extends HttpServlet {
         System.out.print(result);
         
         try {
-            int i = result.getInt("ID"); // There is also other version for getInt which relies on column index number
+            int i = result.getInt("ID"); 
+            // There is also other version for getInt which relies on column index number, BUT WE'RE USING THIS ONE
             System.out.println("i: " + i + "\n");    
             
         } catch (Exception ex) {
@@ -103,7 +103,7 @@ public class GetCandidate extends HttpServlet {
 			      
 				}
         } catch (Exception ex1) {
-            System.out.println("*** Failure ***");
+            System.out.println("Failure");
         }
         
         	response.setContentType("text/plain");
