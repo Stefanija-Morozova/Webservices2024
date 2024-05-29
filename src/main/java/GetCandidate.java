@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 @SuppressWarnings("serial")
 //set up the webservlet for getting a list of all the candidates
 @WebServlet(
-    name = "getCandidates",
-    urlPatterns = {"/getcandidates"})
+    name = "getCandidate",
+    urlPatterns = {"/getcandidate"})
 //public class connected to servlets
 public class GetCandidate extends HttpServlet {
 
@@ -27,9 +27,9 @@ public class GetCandidate extends HttpServlet {
       throws IOException {
 	  
 	  String driver = "com.mysql.jdbc.Driver";
-		String DBpath = "//localhost/ "; //add database path
+		String DBpath = "//loaclhost/ELECTIONMACHINE"; //add database path
 		String username = "root"; //user name
-		String password = " "; //add password
+		String password = "sm7-DMFND"; //add password
 		Connection connection = null; //responsible for connection
 		Statement statement = null; //responsible for query statement
 		ResultSet result = null; //responsible for result of query statement

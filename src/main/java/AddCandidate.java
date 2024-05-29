@@ -15,8 +15,8 @@ import java.util.*;
 
 @SuppressWarnings("serial")
 @WebServlet(
-    name = "addCandidates",
-    urlPatterns = {"/addcandidates"})
+    name = "addCandidate",
+    urlPatterns = {"/addcandidate"})
 
 public class AddCandidate extends HttpServlet {
 	
@@ -24,9 +24,9 @@ public class AddCandidate extends HttpServlet {
 		      throws IOException {
 		//servlet connection to database
 		String driver = "com.mysql.jdbc.Driver";
-		String DBpath = "//localhost/"; //db path
-		String username = "root";
-		String password = ""; //password
+		String DBpath = "//localhost/electionmachine"; //db path
+		String username = "root"; //access name
+		String password = "sm7-DMFND"; //password
 		Connection connection = null;
 		Statement statement = null;
 		ResultSet result = null;
@@ -97,7 +97,7 @@ public class AddCandidate extends HttpServlet {
 	        PrintWriter out = response.getWriter();
 	         
 
-	         //printing page details/forms out
+	         //printing page details/forms out, getting params for insteting
 	         out.println("<html>");
 	         out.println("<body>");
 	         out.println("<ul>");
@@ -108,10 +108,72 @@ public class AddCandidate extends HttpServlet {
 	         	 out.println("<li>" + "CANDIDATE ID: " + candidate_id.get(i) + ",  " + first_name.get(i) + " " + last_name.get(i) + " " + age.get(i) + ", PARTY: " + party.get(i) +  ", REGION:" + municipality.get(i) + "</li>");
 	             out.println("<br>");
 	             }
+             out.println("<br>");
 	         
+	         out.println("<label for=\"fname\">Enter ID:</label><br>");
+	         out.println("<input type=\"text\" id=\"tba_id\" name=\"tba_id\"><br>"); //tba stands for to be added
+	         
+	         out.println("<label for=\"fname\">Enter name:</label><br>");
+	         out.println("<input type=\"text\" id=\"tba_name\" name=\"tba_name\"><br>");
+	         
+	         out.println("<label for=\"fname\">Enter last name:</label><br>");
+	         out.println("<input type=\"text\" id=\"tba_lname\" name=\"tba_lname\"><br>");
+	         
+	         out.println("<label for=\"fname\">Enter Party:</label><br>");
+	         out.println("<input type=\"text\" id=\"tba_party\" name=\"tba_party\"><br>");
+	         
+	         out.println("<label for=\"fname\">Enter Region:</label><br>");
+	         out.println("<input type=\"text\" id=\"tba_party\" name=\"tba_party\"><br>");
+	         
+	         out.println("<label for=\"fname\">Enter Age:</label><br>");
+	         out.println("<input type=\"text\" id=\"tba_age\" name=\"tba_age\"><br>");
+	         
+	         out.println("<label for=\"fname\">Enter Description:</label><br>");
+	         out.println("<input type=\"text\" id=\"tba_description\" name=\"tba_description\"><br>");
+	         
+	         out.println("<input type=\"submit\" value=\"Submit\">");
+	         
+	         out.println("</form>");
+	         out.println("</ul>");
+	         out.println("</body></html>");
+	}
+	//instance, connection, statement
+	  public void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+      	String driver = "com.mysql.jdbc.Driver";
+   		String DBpath = "//localhost/electionmachine";
+   		String username = "root";
+   		String password = "sm7-DMFND";
+   		Connection connection2 = null;
+	
+   		try {
+ 			Class.forName(driver).newInstance();
+ 		} catch (Exception ex) { }
+ 		
+ 		
+ 		try {
+ 		connection2 = DriverManager.getConnection("jdbc:mysql:" + DBpath, username, password);
+ 		}catch (Exception ex) {
+             System.out.println("Connection to database failed");}
+ 
+ 		try { //takes the inserted values/parameters of the form, turns them into a set of values and inserted into the sql statement
+     		PreparedStatement st = connection2.prepareStatement("INSERT INTO candidates VALUES(?, ?, ?, ?, ?, ?, ?)");
+     		st.setInt(1, Integer.valueOf(request.getParameter("tba_id"))); //since this needs an integer, it gets turned into an integer
+     		st.setString(2, request.getParameter("tba_name"));
+     		st.setString(3, request.getParameter("tba_lname"));
+     		st.setString(4, request.getParameter("tba_party"));
+     		st.setString(5, request.getParameter("tba_region"));    		
+     		st.setInt(6, Integer.valueOf(request.getParameter("tba_age"))); //same with age, this doesn't apply to strings
+     		st.setString(7, request.getParameter("tba_description"));  
+     		st.executeUpdate();	
+     		 System.out.println("Candidate Added");
+	   	        
+   	         
+	         }catch (Exception ex1) {
+		         System.out.println("Could not add Candidate");
+		     }
 	         
 } 
 	
 
 
-}
+	  } 
