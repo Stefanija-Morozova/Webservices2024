@@ -156,15 +156,15 @@ public class AddCandidate extends HttpServlet {
              System.out.println("Connection to database failed");}
  
  		try { //takes the inserted values/parameters of the form, turns them into a set of values and inserted into the sql statement
-     		PreparedStatement st = connection2.prepareStatement("INSERT INTO candidates VALUES(?, ?, ?, ?, ?, ?, ?)");
-     		st.setInt(1, Integer.valueOf(request.getParameter("tba_id"))); //since this needs an integer, it gets turned into an integer
-     		st.setString(2, request.getParameter("tba_name"));
-     		st.setString(3, request.getParameter("tba_lname"));
-     		st.setString(4, request.getParameter("tba_party"));
-     		st.setString(5, request.getParameter("tba_region"));    		
-     		st.setInt(6, Integer.valueOf(request.getParameter("tba_age"))); //same with age, this doesn't apply to strings
-     		st.setString(7, request.getParameter("tba_description"));  
-     		st.executeUpdate();	
+     		PreparedStatement statement1 = connection2.prepareStatement("INSERT INTO candidates VALUES(?, ?, ?, ?, ?, ?, ?)");
+     		statement1.setInt(1, Integer.valueOf(request.getParameter("tba_id"))); //since this needs an integer, it gets turned into an integer
+     		statement1.setString(2, request.getParameter("tba_name"));
+     		statement1.setString(3, request.getParameter("tba_lname"));
+     		statement1.setString(4, request.getParameter("tba_party"));
+     		statement1.setString(5, request.getParameter("tba_region"));    		
+     		statement1.setInt(6, Integer.valueOf(request.getParameter("tba_age"))); //same with age, this doesn't apply to strings
+     		statement1.setString(7, request.getParameter("tba_description"));  
+     		statement1.executeUpdate();	
      		 System.out.println("Candidate Added");
 	   	        
    	         
