@@ -27,7 +27,7 @@ public class GetCandidate extends HttpServlet {
       throws IOException {
 	  
 	  String driver = "com.mysql.jdbc.Driver";
-		String DBpath = "//loaclhost/ELECTIONMACHINE"; //add database path
+		String DBpath = "//loaclhost/electionmachine"; //add database path
 		String username = "root"; //user name
 		String password = "sm7-DMFND"; //add password
 		Connection connection = null; //responsible for connection
