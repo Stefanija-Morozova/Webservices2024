@@ -32,3 +32,45 @@ CREATE TABLE ANSWERS (
    QUESTION_ID INTEGER NOT NULL,
    ANSWER INTEGER,
    PRIMARY KEY (CANDIDATE_ID, QUESTION_ID));
+   
+   INSERT INTO CANDIDATES VALUES (1,"Tony", "Hawk","Skater Party", "Hameenlinna", 47, "Skateboards and bikes should be mandatory forms of transport");
+   INSERT INTO CANDIDATES VALUES (2, "Avril", "Lavigne", "Pop Party", "Kouvola", 39, "Music is an everymans right");
+   INSERT INTO CANDIDATES VALUES (3, "Aino", "Koivunen", "Veterans party", "Porvoo", 56, "Medicine is life");
+   INSERT INTO CANDIDATES VALUES (4,"Oscar", "Prime", "Autobots Party", "Oulu", 45, "Education is the most important aspect of survival");
+   INSERT INTO CANDIDATES VALUES (5,"Teresa", "Hevonen", "Capital Party", "Helsinki", 36, "Income is a source of security for people");
+   
+   INSERT INTO QUESTIONS VALUES (1, "Is freedom the right of all sentient beings?");
+   INSERT INTO QUESTIONS VALUES (2, "Is music benificial to mental health?");
+   INSERT INTO QUESTIONS VALUES (3, "Is leasure and physical activity hobbies pivotal for society?");
+   INSERT INTO QUESTIONS VALUES (4, "Is passive income helpful?");
+   INSERT INTO QUESTIONS VALUES (5, "Is addiction treatment required to be involved in medicine?");
+   
+INSERT INTO ANSWERS VALUES (1, 1, 2);
+INSERT INTO ANSWERS VALUES (1, 2, 3);
+INSERT INTO ANSWERS VALUES (1, 3, 1);
+INSERT INTO ANSWERS VALUES (1, 4, 4);
+INSERT INTO ANSWERS VALUES (1, 5, 5);
+
+INSERT INTO ANSWERS VALUES (2, 1, 3);
+INSERT INTO ANSWERS VALUES (2, 2, 1);
+INSERT INTO ANSWERS VALUES (2, 3, 4);
+INSERT INTO ANSWERS VALUES (2, 4, 2);
+INSERT INTO ANSWERS VALUES (2, 5, 5);
+
+INSERT INTO ANSWERS VALUES (3, 1, 3);
+INSERT INTO ANSWERS VALUES (3, 2, 4);
+INSERT INTO ANSWERS VALUES (3, 3, 5);
+INSERT INTO ANSWERS VALUES (3, 4, 2);
+INSERT INTO ANSWERS VALUES (3, 5, 1);
+
+INSERT INTO ANSWERS VALUES (4, 1, 1);
+INSERT INTO ANSWERS VALUES (4, 2, 2);
+INSERT INTO ANSWERS VALUES (4, 3, 3);
+INSERT INTO ANSWERS VALUES (4, 4, 4);
+INSERT INTO ANSWERS VALUES (4, 5, 5);
+
+INSERT INTO ANSWERS VALUES (5, 1, 2);
+INSERT INTO ANSWERS VALUES (5, 2, 3);
+INSERT INTO ANSWERS VALUES (5, 3, 5);
+INSERT INTO ANSWERS VALUES (5, 4, 4);
+INSERT INTO ANSWERS VALUES (5, 5, 1);
