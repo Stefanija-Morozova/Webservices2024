@@ -27,7 +27,7 @@ public class GetCandidate extends HttpServlet {
       throws IOException {
 	  
 	  String driver = "com.mysql.jdbc.Driver";
-		String DBpath = "//loaclhost/electionmachine"; //add database path
+		String DBpath = "//localhost/electionmachine"; //add database path
 		String username = "root"; //user name
 		String password = "sm7-DMFND"; //add password
 		Connection connection = null; //responsible for connection
@@ -57,7 +57,7 @@ public class GetCandidate extends HttpServlet {
 
 		String sql;
         
-        sql = "Select*From candidates";
+        sql = "Select*From CANDIDATES";
         try {
         	//converts string into query and executes it
 			result = statement.executeQuery(sql);
@@ -73,7 +73,7 @@ public class GetCandidate extends HttpServlet {
             System.out.println("i: " + i + "\n");    
             
         } catch (Exception ex) {
-            System.out.println("*** Failure ***");
+            System.out.println("Could not get result from executed theory.");
             
         ArrayList<String> first_name = new ArrayList<String>();
         ArrayList<String> last_name = new ArrayList<String>();

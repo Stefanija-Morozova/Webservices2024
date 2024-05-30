@@ -85,6 +85,79 @@
         <artifactId>appengine-maven-plugin</artifactId>
         <version>${appengine.maven.plugin.version}</version>
       </plugin>
+      <!-- BEGIN: Added by Pena -->
+
+<!-- This is needed in the Google Cloud side to be able to connect to a database -->
+    <plugin>
+      <groupId>com.google.cloud.sql</groupId>
+      <artifactId>mysql-socket-factory-connector-j-8</artifactId>
+      <version>1.6.3</version>
+    </plugin>
+    
+<!-- This is for pooling the database connections - differs pretty much from e.g. Tomcat's way'-->    
+<!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+<plugin>
+    <groupId>com.zaxxer</groupId>
+    <artifactId>HikariCP</artifactId>
+    <version>4.0.3</version>
+</plugin>
+
+<!-- This dependency is needed for annotations (e.g. @Path, @Consumes, @Produces etc.) in the REST-class-->
+	<plugin>
+	    <groupId>org.glassfish.jersey.media</groupId>
+	    <artifactId>jersey-media-json-jackson</artifactId>
+	    <version>2.27</version>
+	</plugin>
+
+<!-- This is needed that your server can handle REST-class as a servlet.
+		e.g. the class org.glassfish.jersey.servlet.ServletContainer 
+		in the project's web.xml file can be found from this library --> 
+	<plugin>
+		<groupId>org.glassfish.jersey.containers</groupId>
+		<artifactId>jersey-container-servlet</artifactId>
+		<version>2.27</version>
+	</plugin>
+
+<!-- This is needed because of injections  - server can inject our extra classes into resource -->	
+	<plugin>
+		<groupId>org.glassfish.jersey.inject</groupId>
+		<artifactId>jersey-hk2</artifactId>
+		<version>2.27</version>
+	</plugin>
+
+
+<!-- This is needed to be able to connect to MySQL database. -->	
+   <plugin>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.29</version>
+    </plugin>
+
+	<!-- https://mvnrepository.com/artifact/org.eclipse.persistence/eclipselink 
+		Eclipselink JPA Implementation 
+	-->
+	<plugin>
+	    <groupId>org.eclipse.persistence</groupId>
+	    <artifactId>eclipselink</artifactId>
+	    <version>2.5.0</version>
+	</plugin>
+	
+	<!-- 
+	If using Java 11 or newer add next two.
+	These are moved to servlet api and not any more in Java SE API 
+	 -->
+	<plugin>
+	    <groupId>javax.xml.bind</groupId>
+	    <artifactId>jaxb-api</artifactId>
+	    <version>2.3.0</version>
+	</plugin>
+	<plugin>
+	    <groupId>javax.activation</groupId>
+	    <artifactId>activation</artifactId>
+	    <version>1.1.1</version>
+	</plugin>
+
+<!-- END: Added by Pena -->        
       
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

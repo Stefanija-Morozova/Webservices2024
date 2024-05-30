@@ -44,7 +44,7 @@ public class AddCandidate extends HttpServlet {
 			}
 		try {// selects all candidates and displays them		
 			String sql;
-	        sql = "Select*From candidates";
+	        sql = "Select*From CANDIDATES";
 	        result = statement.executeQuery(sql);
 	        System.out.print(result);
 			}catch (Exception ex1) {

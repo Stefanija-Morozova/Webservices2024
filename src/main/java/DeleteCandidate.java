@@ -45,7 +45,7 @@ public class DeleteCandidate extends HttpServlet {
 
 				String sql;
 		        
-		        sql = "Select*From candidates";
+		        sql = "Select*From CANDIDATES";
 		        try {
 		        	//converts string into query and executes it
 					result = statement.executeQuery(sql);
